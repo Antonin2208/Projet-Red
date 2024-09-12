@@ -1,4 +1,4 @@
-package main
+package projetred
 
 import (
 	"fmt"
@@ -6,14 +6,14 @@ import (
 	"github.com/fatih/color"
 )
 
-func ScanInput() {
+func MenuMarchand() {
 	for {
 		var choice int
 
-		fmt.Println("Menu:")
+		fmt.Println("Tu veux un 10 balle ? non je rigole viens la je vais te montrer mes meilleur plavon")
 		color.White("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- ")
 		fmt.Println()
-		color.Cyan("1. Stats")
+		color.Cyan("1.  ")
 		fmt.Println()
 		color.Green("2. Inventaire")
 		fmt.Println()
@@ -42,8 +42,4 @@ func ScanInput() {
 
 		}
 	}
-}
-
-func main() {
-	ScanInput()
 }
