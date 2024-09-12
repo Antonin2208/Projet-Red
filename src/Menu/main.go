@@ -2,7 +2,26 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"os/exec"
+	"runtime"
 )
+
+func clearScreen() {
+	switch runtime.GOOS {
+	case "linux", "darwin":
+		cmd := exec.Command("clear")
+		cmd.Stdout = os.Stdout
+		cmd.Run()
+	case "windows":
+		cmd := exec.Command("cmd", "/c", "cls")
+		cmd.Stdout = os.Stdout
+		cmd.Run()
+	default:
+		fmt.Print("\033[2J")
+		fmt.Print("\033[H")
+	}
+}
 
 // Structure pour représenter un objet
 type Item struct {
@@ -55,6 +74,7 @@ func (inv *Inventory) Display() {
 
 func main() {
 	// Créer un inventaire
+	clearScreen()
 	inventory := NewInventory()
 
 	for {
@@ -68,7 +88,7 @@ func main() {
 		fmt.Print("Choisissez une option : ")
 		_, err := fmt.Scan(&choice)
 		if err != nil {
-			fmt.Println("Entrée invalide. Veuillez entrer un nombre.")
+			fmt.Println("Entrée invalide. Veuillez entrer une lettre.")
 			continue
 		}
 
