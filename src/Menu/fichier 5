@@ -4,28 +4,34 @@ import (
 	"fmt"
 )
 
+// Structure pour représenter un objet
 type Item struct {
 	Name        string
 	Description string
 }
 
+// Structure pour représenter un inventaire
 type Inventory struct {
-	Items map[string]Item
+	Items map[string]Item // Utilisation d'une map pour un accès rapide
 }
 
+// Fonction pour créer un nouvel objet
 func NewItem(name, description string) Item {
 	return Item{Name: name, Description: description}
 }
 
+// Fonction pour créer un nouvel inventaire
 func NewInventory() Inventory {
 	return Inventory{Items: make(map[string]Item)}
 }
 
+// Méthode pour ajouter un objet à l'inventaire
 func (inv *Inventory) AddItem(item Item) {
 	inv.Items[item.Name] = item
 	fmt.Printf("L'objet '%s' a été ajouté à l'inventaire.\n", item.Name)
 }
 
+// Méthode pour retirer un objet de l'inventaire
 func (inv *Inventory) RemoveItem(itemName string) {
 	if _, exists := inv.Items[itemName]; exists {
 		delete(inv.Items, itemName)
@@ -35,6 +41,7 @@ func (inv *Inventory) RemoveItem(itemName string) {
 	}
 }
 
+// Méthode pour afficher le contenu de l'inventaire
 func (inv *Inventory) Display() {
 	fmt.Println("Inventaire :")
 	if len(inv.Items) == 0 {
@@ -45,7 +52,9 @@ func (inv *Inventory) Display() {
 		fmt.Printf("Nom: %s, Description: %s\n", item.Name, item.Description)
 	}
 }
+
 func main() {
+	// Créer un inventaire
 	inventory := NewInventory()
 
 	for {
