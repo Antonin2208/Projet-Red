@@ -2,48 +2,92 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/fatih/color"
 )
 
-func ScanInput() {
-	for {
-		var choice int
+type Item struct {
+	Name        string
+	Description string
+}
 
-		fmt.Println("Menu:")
-		color.White("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- ")
-		fmt.Println()
-		color.Cyan("1. Stats")
-		fmt.Println()
-		color.Green("2. Inventaire")
-		fmt.Println()
-		color.Yellow("3. Marchand")
-		fmt.Println()
-		color.Red("4. Quitter")
-		fmt.Println()
-		color.White("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- ")
-		fmt.Println()
-		fmt.Print("Entrez votre choix (1-3): ")
-		fmt.Scan(&choice)
+type Inventory struct {
+	Items map[string]Item
+}
 
-		switch choice {
-		case 1:
-			fmt.Println("Vous avez choisi d'afficher un message.")
-		case 2:
-			var num int
-			fmt.Print("Tapez un nombre: ")
-			fmt.Scan(&num)
-			fmt.Println("Votre nombre est:", num)
-		case 3:
-			fmt.Println("Au revoir!")
-			return
-		default:
-			fmt.Println("Choix invalide. Veuillez entrer un nombre entre 1 et 3.")
+func NewItem(name, description string) Item {
+	return Item{Name: name, Description: description}
+}
 
-		}
+func NewInventory() Inventory {
+	return Inventory{Items: make(map[string]Item)}
+}
+
+func (inv *Inventory) AddItem(item Item) {
+	inv.Items[item.Name] = item
+	fmt.Printf("L'objet '%s' a été ajouté à l'inventaire.\n", item.Name)
+}
+
+func (inv *Inventory) RemoveItem(itemName string) {
+	if _, exists := inv.Items[itemName]; exists {
+		delete(inv.Items, itemName)
+		fmt.Printf("L'objet '%s' a été retiré de l'inventaire.\n", itemName)
+	} else {
+		fmt.Printf("L'objet '%s' n'existe pas dans l'inventaire.\n", itemName)
 	}
 }
 
+func (inv *Inventory) Display() {
+	fmt.Println("Inventaire :")
+	if len(inv.Items) == 0 {
+		fmt.Println("Votre inventaire est vide.")
+		return
+	}
+	for _, item := range inv.Items {
+		fmt.Printf("Nom: %s, Description: %s\n", item.Name, item.Description)
+	}
+}
 func main() {
-	ScanInput()
+	inventory := NewInventory()
+
+	for {
+		fmt.Println("\nMenu principal :")
+		fmt.Println("1. Ajouter un objet à l'inventaire")
+		fmt.Println("2. Retirer un objet de l'inventaire")
+		fmt.Println("3. Afficher le contenu de l'inventaire")
+		fmt.Println("4. Quitter")
+
+		var choice int
+		fmt.Print("Choisissez une option : ")
+		_, err := fmt.Scan(&choice)
+		if err != nil {
+			fmt.Println("Entrée invalide. Veuillez entrer un nombre.")
+			continue
+		}
+
+		switch choice {
+		case 1:
+			var name, description string
+			fmt.Print("Entrez le nom de l'objet : ")
+			fmt.Scan(&name)
+			fmt.Print("Entrez la description de l'objet : ")
+			fmt.Scan(&description)
+			item := NewItem(name, description)
+			inventory.AddItem(item)
+
+		case 2:
+			var name string
+			fmt.Print("Entrez le nom de l'objet à retirer : ")
+			fmt.Scan(&name)
+			inventory.RemoveItem(name)
+
+		case 3:
+			inventory.Display()
+
+		case 4:
+			fmt.Println("Quitter le programme.")
+			return
+
+		default:
+			fmt.Println("Choix non valide. Essayez encore.")
+		}
+	}
 }
