@@ -7,19 +7,18 @@ import (
 )
 
 func MenuMarchand() {
+	ClearScreen()
 	for {
 		var choice int
 
 		fmt.Println("Tu veux un 10 balle ? non je rigole viens la je vais te montrer mes meilleur plavon")
 		color.White("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- ")
 		fmt.Println()
-		color.Cyan("1.  ")
+		color.Red("1. Fiole de Poliakov")
 		fmt.Println()
-		color.Green("2. Inventaire")
+		color.Green("2. Potion de poison")
 		fmt.Println()
-		color.Yellow("3. Marchand")
-		fmt.Println()
-		color.Red("4. Quitter")
+		color.Red("3. Quitter")
 		fmt.Println()
 		color.White("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- ")
 		fmt.Println()
@@ -35,7 +34,7 @@ func MenuMarchand() {
 			fmt.Scan(&num)
 			fmt.Println("Votre nombre est:", num)
 		case 3:
-			fmt.Println("Au revoir!")
+			fmt.Println("Casse un tour d'ici on va se faire peter")
 			return
 		default:
 			fmt.Println("Choix invalide. Veuillez entrer un nombre entre 1 et 3.")

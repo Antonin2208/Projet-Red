@@ -8,6 +8,7 @@ import (
 )
 
 func MenuPrincipal() {
+	projetred.ClearScreen()
 	for {
 		var choice int
 
@@ -24,7 +25,7 @@ func MenuPrincipal() {
 		fmt.Println()
 		color.White("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- ")
 		fmt.Println()
-		fmt.Print("Entrez votre choix (1-3): ")
+		fmt.Print("Entrez votre choix (1-4): ")
 		fmt.Scan(&choice)
 
 		switch choice {
@@ -38,6 +39,7 @@ func MenuPrincipal() {
 		case 3:
 			projetred.MenuMarchand()
 		case 4:
+			projetred.ClearScreen()
 			fmt.Println("Au revoir!")
 			return
 		default:
