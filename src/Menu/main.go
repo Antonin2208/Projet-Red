@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/fatih/color"
 )
 
 func ScanInput() {
@@ -9,11 +11,18 @@ func ScanInput() {
 		var choice int
 
 		fmt.Println("Menu:")
-		fmt.Println("=====================================================================")
-		fmt.Println("1. Afficher un message")
-		fmt.Println("2. Entrer un nombre")
-		fmt.Println("3. Quitter")
-		fmt.Println("=====================================================================")
+		color.White("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- ")
+		fmt.Println()
+		color.Cyan("1. Stats")
+		fmt.Println()
+		color.Green("2. Inventaire")
+		fmt.Println()
+		color.Yellow("3. Marchand")
+		fmt.Println()
+		color.Red("4. Quitter")
+		fmt.Println()
+		color.White("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- ")
+		fmt.Println()
 		fmt.Print("Entrez votre choix (1-3): ")
 		fmt.Scan(&choice)
 
@@ -30,6 +39,7 @@ func ScanInput() {
 			return
 		default:
 			fmt.Println("Choix invalide. Veuillez entrer un nombre entre 1 et 3.")
+
 		}
 	}
 }
