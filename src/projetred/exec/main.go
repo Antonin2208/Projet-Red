@@ -50,6 +50,6 @@ func MenuPrincipal() {
 }
 
 func main() {
-	projetred.ShowMenu()
+	projetred.CreateCharacter()
 	MenuPrincipal()
 }
