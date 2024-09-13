@@ -32,7 +32,7 @@ func MenuPrincipal() {
 		case 1:
 			fmt.Println("Vous avez choisi d'afficher un message.")
 		case 2:
-			projetred.InventoryMenu(&character)
+
 		case 3:
 			projetred.MenuMarchand()
 		case 4:

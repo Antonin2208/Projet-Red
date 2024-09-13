@@ -8,7 +8,10 @@ func CreateCharacter() Character {
 	var name, class string
 
 	// Demande du nom du personnage
-	fmt.Println("Entrez le nom de votre personnage :")
+	fmt.Println(`
+	
+	
+	`)
 	fmt.Scanln(&name)
 
 	// Sélection de la classe du personnage
