@@ -32,10 +32,7 @@ func MenuPrincipal() {
 		case 1:
 			fmt.Println("Vous avez choisi d'afficher un message.")
 		case 2:
-			var num int
-			fmt.Print("Tapez un nombre: ")
-			fmt.Scan(&num)
-			fmt.Println("Votre nombre est:", num)
+			projetred.InventoryMenu(&character)
 		case 3:
 			projetred.MenuMarchand()
 		case 4:
@@ -50,6 +47,7 @@ func MenuPrincipal() {
 }
 
 func main() {
-	projetred.ShowMenu()
+	character := projetred.CreateCharacter()
+	projetred.InventoryMenu(&character) // Passer un pointeur vers le personnage
 	MenuPrincipal()
 }
