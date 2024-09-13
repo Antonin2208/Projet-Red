@@ -18,7 +18,7 @@ func InventoryMenu(character *Character) {
 		color.White("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- ")
 		fmt.Print("> ")
 		fmt.Scanln(&choice)
-
+		ClearScreen()
 		switch choice {
 		case 1:
 			ShowInventory(character)

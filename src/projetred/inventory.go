@@ -2,12 +2,12 @@ package projetred
 
 import (
 	"fmt"
+
 	"github.com/fatih/color"
 )
 
 // Fonction pour afficher l'inventaire du personnage
 func ShowInventory(character *Character) {
-	ClearScreen()
 	color.Cyan("\nVotre Inventaire :")
 	if len(character.Inventory) == 0 {
 		color.Red("Votre inventaire est vide.")
