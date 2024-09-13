@@ -9,8 +9,8 @@ func ShowMenu() string {
 	fmt.Println(`
 
 `)
-	fmt.Println("Bienvenue dans notre jeu !")
-	fmt.Print("Veuillez entrer votre nom : ")
+	fmt.Println("Ouais mon gars la t'arrive dans le game du game tes pas prêt")
+	fmt.Print("lache ton blaze fréro : ")
 	fmt.Scanln(&name)
 
 	// Confirmer l'entrée du joueur
