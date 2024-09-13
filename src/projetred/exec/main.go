@@ -12,8 +12,16 @@ func MenuPrincipal() {
 	for {
 		var choice int
 
-		fmt.Println("Menu:")
-		color.White("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- ")
+		fmt.Print(`   
+                     ____            __             _                                     __       __
+                    / __ \  ____ _  / /_   ____    (_)        _      __  ____    _____   / /  ____/ /
+                   / /_/ / / __  / / __/  / __ \  / /        | | /| / / / __ \  / ___/  / /  / __  / 
+                  / _, _/ / /_/ / / /_   / /_/ / / /         | |/ |/ / / /_/ / / /     / /  / /_/ /  
+                 /_/ |_|  \__,_/  \__/  / .___/ /_/          |__/|__/  \____/ /_/     /_/   \__,_/   
+                                       /_/                                                           
+	`)
+
+		color.White(" ")
 		fmt.Println()
 		color.Cyan("1. Stats")
 		fmt.Println()
@@ -23,7 +31,7 @@ func MenuPrincipal() {
 		fmt.Println()
 		color.Red("4. Quitter")
 		fmt.Println()
-		color.White("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_- ")
+		color.White("▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂")
 		fmt.Println()
 		fmt.Print("Entrez votre choix (1-4): ")
 		fmt.Scan(&choice)
@@ -48,6 +56,6 @@ func MenuPrincipal() {
 
 func main() {
 	character := projetred.CreateCharacter()
-	projetred.InventoryMenu(&character) // Passer un pointeur vers le personnage
+	projetred.InventoryMenu(&character)
 	MenuPrincipal()
 }
