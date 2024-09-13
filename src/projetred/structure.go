@@ -5,3 +5,8 @@ type Personnage struct {
 	Niveau int
 	PV     int
 }
+
+type Character struct {
+	Name  string
+	Class string
+}
