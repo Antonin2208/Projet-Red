@@ -55,7 +55,7 @@ func MenuPrincipal() {
 }
 
 func main() {
-	character := projetred.CreateCharacter()
-	projetred.InventoryMenu(&character)
+	//character := projetred.CreateCharacter()//
+	//projetred.InventoryMenu(&character)// 
 	MenuPrincipal()
 }

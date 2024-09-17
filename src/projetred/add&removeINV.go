@@ -2,11 +2,11 @@ package projetred
 
 import "fmt"
 
-type Inventory struct {
+type InventoryMenu struct {
 	items map[string]int
 }
 
-func (inv *Inventory) removeInventory(item string, quantity int) {
+func (inv *InventoryMenu) removeInventory(item string, quantity int) {
 	if _, exists := inv.items[item]; exists {
 		if inv.items[item] > quantity {
 			inv.items[item] -= quantity
@@ -16,7 +16,7 @@ func (inv *Inventory) removeInventory(item string, quantity int) {
 	}
 }
 
-func (inv *Inventory) addInventory(item string, quantity int) {
+func (inv *InventoryMenu) addInventory(item string, quantity int) {
 	if _, exists := inv.items[item]; exists {
 		inv.items[item] += quantity
 	} else {

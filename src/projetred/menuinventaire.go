@@ -6,7 +6,7 @@ import (
 	"github.com/fatih/color"
 )
 
-// Fonction principale pour interagir avec l'inventaire
+Fonction principale pour interagir avec l'inventaire
 func InventoryMenu(character *Character) {
 
 	ClearScreen()
@@ -39,3 +39,4 @@ func InventoryMenu(character *Character) {
 		}
 	}
 }
+ 
