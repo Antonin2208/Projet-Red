@@ -291,20 +291,17 @@ func MenuPrincipal(j *Joueur) {
 func Forgeron(j *Joueur) {
 	EffacerConsole()
 	contenu := []string{
-		//"=================================================================================================",
 		"1. Fabriquer un Chapeau de pirate (15 pièces, 1 Plume de sirène , 1 Peau de requin)",
 		"2. Fabriquer une Tunique de marin (15 pièces, 1 Dent, 1 Peau de requin)",
 		"3. Fabriquer des Bottes de marin (15 pièces, 1 Peau de requin, 1 Bout de tentacule)",
 		"4. Fabriquer un Cache-oeil (15 pièces, 1 Âme du Capitaine Phantom Alan)",
 		"5. Retour au menu principal",
-		//"=================================================================================================",
 	}
 	fmt.Printf("╔═══════════════════════════════════════════════════════════════════════════════════════════════╗\n")
 	fmt.Printf("║ Menu forgeron                                                                                 ║\n")
 	fmt.Printf("╣═══════════════════════════════════════════════════════════════════════════════════════════════╣\n")
 	for _, i := range contenu {
 		fmt.Println(fmt.Sprintf("%-95s ║", i))
-		//AfficherCadre("Forgeron - Fabriquer un équipement", contenu)
 	}
 	fmt.Printf("╚═══════════════════════════════════════════════════════════════════════════════════════════════╝\n")
 
@@ -541,7 +538,7 @@ func Animalerie(j *Joueur) {
 	fmt.Println("2. Adopter Cyril l'hippocampes (15% vie, 50 pièces)")
 	fmt.Println("3. Adopter marie la sirène (beauté , 999 pièces)")
 	fmt.Println("4. Adopter Maxime la raie (boost market , 10 pièces)")
-
+	fmt.Println("5. Retour")
 	fmt.Println(`
                 \:.|"._
        /\/;.:':::;;;._
@@ -625,8 +622,6 @@ func Animalerie(j *Joueur) {
    
    
     `)
-
-	fmt.Println("3. Retour")
 
 	var choix int
 	fmt.Print("Votre choix : ")
